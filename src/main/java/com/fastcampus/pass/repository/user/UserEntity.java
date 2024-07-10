@@ -1,6 +1,7 @@
 package com.fastcampus.pass.repository.user;
 
 import com.fastcampus.pass.repository.BaseEntity;
+import com.vladmihalcea.hibernate.type.json.JsonType;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,7 +19,7 @@ import java.util.Map;
 @Entity
 @Table(name = "user")
 // json의 타입을 정의합니다.
-@Convert(attributeName = "entityAttrName", converter = JsonAsStringJdbcType.class)
+@Convert(attributeName = "entityAttrName", converter = JsonType.class)
 public class UserEntity extends BaseEntity {
     @Id
     private String userId;
